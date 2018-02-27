@@ -25,7 +25,6 @@ public class FrogMovement : MonoBehaviour {
             float realJumpDergree = Mathf.Deg2Rad * jumpDegree;
             Vector3 jumpVector = Vector3.RotateTowards((projectedLookVector.normalized) * jumpFactor, Vector3.up, realJumpDergree, 0);
             GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.VelocityChange);
-            //GetComponent<Rigidbody>().velocity = jumpVector;
         }
 	}
 }

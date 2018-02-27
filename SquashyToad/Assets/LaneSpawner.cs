@@ -8,7 +8,7 @@ public class LaneSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         int offset = 0;
-        while (offset<500)
+        while (offset<1500)
         {
             CreateRandomLane(offset);
             offset += 50;

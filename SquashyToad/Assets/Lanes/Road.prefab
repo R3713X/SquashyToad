@@ -83,6 +83,7 @@ Transform:
   - {fileID: 438466}
   - {fileID: 485896}
   - {fileID: 456078}
+  - {fileID: 4000011113116270}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &438466
@@ -279,3 +280,66 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129584}
   m_IsPrefabParent: 1
+--- !u!1 &1000012982234358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011113116270}
+  - 114: {fileID: 114000012648043462}
+  - 114: {fileID: 114000011040080488}
+  m_Layer: 0
+  m_Name: Vehicle Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000011113116270
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012982234358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.94, y: -1.39, z: 0.082}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 418516}
+  m_RootOrder: 3
+--- !u!114 &114000011040080488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012982234358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909b9b832a373b74b949f62b3db00c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnIntervalBasic: 3
+  spawnIntervalMin: 0.3
+  spawnIntervalMax: 2
+  vehiclePrefab:
+  - {fileID: 1000010141499790, guid: c44a85eb6a81f5b4a87229ec1d2f9a61, type: 2}
+  - {fileID: 1000012917507638, guid: 4efe205a6976d8649b161666d11f999d, type: 2}
+--- !u!114 &114000012648043462
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012982234358}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328b78ac30464e544af4cae86eb4c476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnIntervalBasic: 2
+  spawnIntervalMin: 0.3
+  spawnIntervalMax: 2
+  vehiclePrefab: {fileID: 1000012917507638, guid: 4efe205a6976d8649b161666d11f999d,
+    type: 2}
