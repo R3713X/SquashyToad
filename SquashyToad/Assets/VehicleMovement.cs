@@ -3,13 +3,18 @@ using System.Collections;
 
 public class VehicleMovement : MonoBehaviour {
     public float velocity = 100;
-	// Use this for initialization
-	void Start () {
+    public Rigidbody rb;
+    private Vector3 rotation;
+    // Use this for initialization
+    void Start () {
+        rb = GetComponent<Rigidbody>();
+       
+    }
 	
-	}
 	
-	// Update is called once per frame
-	void Update () {
-        transform.Translate(-velocity * Time.deltaTime, 0, 0);
-	}
+    void FixedUpdate()
+    {
+        //rotation = new Vector3(transform.localRotation.x,transform.localRotation.y);
+        rb.MovePosition(transform.position-transform.right*velocity*Time.deltaTime);
+    }
 }

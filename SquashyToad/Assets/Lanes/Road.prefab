@@ -84,6 +84,7 @@ Transform:
   - {fileID: 485896}
   - {fileID: 456078}
   - {fileID: 4000011113116270}
+  - {fileID: 4000013755199168}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &438466
@@ -94,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 194162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 10}
+  m_LocalScale: {x: 200, y: 1, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 418516}
@@ -106,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.49, y: 2.48, z: 0}
+  m_LocalPosition: {x: -98.98, y: 2.48, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -119,7 +120,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.49, y: 2.48, z: 0}
+  m_LocalPosition: {x: 98.98, y: 2.48, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -280,6 +281,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129584}
   m_IsPrefabParent: 1
+--- !u!1 &1000012022055106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013755199168}
+  - 136: {fileID: 136000011163098528}
+  - 114: {fileID: 114000013706149942}
+  m_Layer: 0
+  m_Name: DestructionCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012982234358
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,12 +322,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012982234358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.94, y: -1.39, z: 0.082}
+  m_LocalPosition: {x: 95.5, y: -1.39, z: 0.082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 418516}
   m_RootOrder: 3
+--- !u!4 &4000013755199168
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012022055106}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -115.5, y: -1.13, z: -0.44000003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 418516}
+  m_RootOrder: 4
 --- !u!114 &114000011040080488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,9 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909b9b832a373b74b949f62b3db00c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnIntervalBasic: 3
-  spawnIntervalMin: 0.3
-  spawnIntervalMax: 2
+  meanTime: 1
+  spawnIntervalMin: 1.5
   vehiclePrefab:
   - {fileID: 1000010141499790, guid: c44a85eb6a81f5b4a87229ec1d2f9a61, type: 2}
   - {fileID: 1000012917507638, guid: 4efe205a6976d8649b161666d11f999d, type: 2}
@@ -338,8 +368,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328b78ac30464e544af4cae86eb4c476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnIntervalBasic: 2
+  meanTime: 1
   spawnIntervalMin: 0.3
-  spawnIntervalMax: 2
   vehiclePrefab: {fileID: 1000012917507638, guid: 4efe205a6976d8649b161666d11f999d,
     type: 2}
+--- !u!114 &114000013706149942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012022055106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312c3f29ee99370419b513580fe28040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &136000011163098528
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012022055106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3.6486022
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

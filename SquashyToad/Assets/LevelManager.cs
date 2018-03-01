@@ -9,7 +9,11 @@ public class LevelManager : MonoBehaviour {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex+1);
     }
-
+    public void ReloadScene()
+    {
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void QuitGame()
     {
         Application.Quit();

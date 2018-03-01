@@ -2,29 +2,56 @@
 using System.Collections;
 
 public class FrogMovement : MonoBehaviour {
-    public int jumpFactor =5;
+    public int[] jumpSpeed = { 10, 20, 30 };
     public int jumpDegree=45;
-    public float jumpGroundClearance = 1;
-    public float speedTolerance=5;
     
-	// Use this for initialization
-	void Start () {
+    public int collisionCounter = 0;
+    public int hopCount=0;
+    private Vector3 jumpVector;
+    private Vector3 unnormalizedJumpVector;
+    private Vector3 projectedLookVector;
+    private float realJumpDergree;
+    private new Camera camera;
+    private Rigidbody rb;
+    // Use this for initialization
+    void Start () {
+        realJumpDergree = Mathf.Deg2Rad * jumpDegree;
+        camera = GetComponentInChildren<Camera>();
+        rb = GetComponent<Rigidbody>();
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-        bool isOnGround = Physics.Raycast(transform.position, -transform.up, jumpGroundClearance);
-        Debug.DrawRay(transform.position, -transform.up * jumpGroundClearance);
-        var speed = GetComponent<Rigidbody>().velocity.magnitude;
-        bool isNearStationary = speed < speedTolerance;
-        if ( GvrViewer.Instance.Triggered && isOnGround && isNearStationary)
+
+        
+
+        bool isOnGround = collisionCounter > 0;
+        if (isOnGround)
         {
-            var camera = GetComponentInChildren<Camera>();
-            Vector3 projectedLookVector = Vector3.ProjectOnPlane(camera.transform.forward, Vector3.up);
-            float realJumpDergree = Mathf.Deg2Rad * jumpDegree;
-            Vector3 jumpVector = Vector3.RotateTowards((projectedLookVector.normalized) * jumpFactor, Vector3.up, realJumpDergree, 0);
-            GetComponent<Rigidbody>().AddForce(jumpVector, ForceMode.VelocityChange);
+            hopCount = 0;
         }
-	}
+        if ( GvrViewer.Instance.Triggered && hopCount<jumpSpeed.Length-1)
+        {
+
+            projectedLookVector = Vector3.ProjectOnPlane(camera.transform.forward, Vector3.up);
+            unnormalizedJumpVector = Vector3.RotateTowards(projectedLookVector.normalized , Vector3.up, realJumpDergree, 0);
+            jumpVector = unnormalizedJumpVector.normalized * jumpSpeed[hopCount];
+            rb.velocity = Vector3.zero;
+            rb.AddForce(jumpVector, ForceMode.VelocityChange);
+            hopCount++;
+        }
+       
+        
+    }
+
+    void OnCollisionEnter()
+    {
+        collisionCounter++;
+        
+    }
+    void OnCollisionExit()
+    {
+        collisionCounter--;
+    }
 }

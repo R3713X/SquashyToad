@@ -2,9 +2,8 @@
 using System.Collections;
 
 public class VehicleMultiSpawner : MonoBehaviour {
-    public float spawnIntervalBasic = 2;
-    public float spawnIntervalMin = 0.3f;
-    public float spawnIntervalMax = 2;
+    public float meanTime = 1;
+    public float spawnIntervalMin =2;
     float nextSpawnTime = 0;
     public GameObject[] vehiclePrefab;
 
@@ -20,7 +19,8 @@ public class VehicleMultiSpawner : MonoBehaviour {
         if (Time.time > nextSpawnTime)
         {
             Spawn();
-            nextSpawnTime = Time.time + spawnIntervalBasic + Random.Range(spawnIntervalMin, spawnIntervalMax);
+            nextSpawnTime = Time.time - Mathf.Log(Random.value)*meanTime + spawnIntervalMin;
+           
         }
     }
     void Spawn()
