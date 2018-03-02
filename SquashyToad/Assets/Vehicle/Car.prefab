@@ -40,6 +40,7 @@ GameObject:
   - 114: {fileID: 114000010572698236}
   - 54: {fileID: 54000012537371946}
   - 114: {fileID: 114000013074390726}
+  - 114: {fileID: 114000012678303322}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -561,6 +562,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathComponent: {fileID: 0}
+--- !u!114 &114000012678303322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010141499790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbca64e524ea44f9b26142ec59aca8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bypassRoomEffects: 0
+  directivityAlpha: 0
+  directivitySharpness: 1
+  gainDb: 0
+  occlusionEnabled: 0
+  playOnAwake: 1
+  rolloffMode: 0
+  spread: 0
+  sourceClip: {fileID: 8300000, guid: 9771ea2bf22568f489aaa537238e3d04, type: 3}
+  sourceLoop: 1
+  sourceMute: 0
+  sourcePitch: 1
+  sourcePriority: 128
+  sourceVolume: 1
+  sourceMaxDistance: 500
+  sourceMinDistance: 0
+  hrtfEnabled: 1
+  audioSource: {fileID: 0}
 --- !u!114 &114000013074390726
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,6 +8,6 @@ public class Destroyer : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Destroy(col.gameObject);
+        Destroy(col.GetComponentInParent<Rigidbody>().gameObject);
     }
 }

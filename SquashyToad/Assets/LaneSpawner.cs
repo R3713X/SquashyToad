@@ -3,29 +3,56 @@ using System.Collections;
 
 public class LaneSpawner : MonoBehaviour {
 
-    public GameObject[] lanePrefabs;
-
-	// Use this for initialization
-	void Start () {
-        int offset = 0;
-        while (offset<1500)
+    public GameObject[] safeLanePrefabs;
+    public GameObject[] dangerLanePrefabs;
+    public int numberOfLanes;
+    private int offset=0;
+    private int laneOffset;
+    public GameObject frog;
+    // Use this for initialization
+    void Start()
+    {
+        laneOffset = numberOfLanes * 50;
+        
+    }
+    void Update () {
+        
+        while (offset< laneOffset + frog.transform.position.z)
         {
-            CreateRandomLane(offset);
+            CreateRandomDangerLane(offset);
+            offset += 50;
+            CreateRandomSafeLane(offset);
             offset += 50;
         }
-
+        foreach (Transform laneTransform in this.transform)
+        {
+            if (laneTransform.position.z + laneOffset < frog.transform.position.z)
+            {
+                Destroy(laneTransform.gameObject);
+            }
+        }
     }
 	
-    void CreateRandomLane(float offset)
+    void CreateRandomSafeLane(float offset)
     {
-        int laneIndex = Random.Range(0,lanePrefabs.Length);
-        var lane = Instantiate(lanePrefabs[laneIndex]);
+        
+        var lane = InstantiateRandomLane(safeLanePrefabs);
         lane.transform.SetParent(transform, false);
         lane.transform.Translate(0, 0, offset);
     }
-
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void CreateRandomDangerLane(float offset)
+    {
+        
+        var lane = InstantiateRandomLane(dangerLanePrefabs);
+        lane.transform.SetParent(transform, false);
+        lane.transform.Translate(0, 0, offset);
+    }
+    GameObject InstantiateRandomLane(GameObject[] lanes)
+    {
+        int laneIndex = Random.Range(0, lanes.Length);
+        return Instantiate(lanes[laneIndex]);
+       
+    }
+    // Update is called once per frame
+    
 }
