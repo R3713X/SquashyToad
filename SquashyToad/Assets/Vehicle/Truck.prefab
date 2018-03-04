@@ -447,7 +447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 60
-  rb: {fileID: 0}
 --- !u!114 &114000011777703054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -488,4 +487,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6e602ce18d4344f946d9e67c8c0f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathComponent: {fileID: 0}
